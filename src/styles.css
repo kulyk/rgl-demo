@@ -1,8 +1,47 @@
-.Grid {
+html,
+body {
+  padding: 0;
+  margin: 0;
   background-color: #f1efef;
+  font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue",
+    "Helvetica";
+  -webkit-font-smoothing: antialiased;
+}
+
+.App {
+  padding: 0 60px;
+}
+
+.Container {
+  min-height: 100vh;
+  margin-top: 20px;
+}
+
+.Grid {
   min-height: 80vh;
 }
 
 .GridCard {
   background-color: #fafafa;
+  transition: border 0.3s, background-color 0.3s;
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 13%);
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.GridCard.react-draggable-dragging,
+.GridCard.resizing {
+  opacity: 1;
+  box-shadow: 3px 3px 8px rgb(0 0 0 / 13%);
+  border-color: #509ee3;
+  background-color: #edf2f5;
+}
+
+.GridCard__Name {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.react-grid-placeholder {
+  background-color: transparent !important;
 }
