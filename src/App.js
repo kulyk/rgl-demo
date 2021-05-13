@@ -53,22 +53,28 @@ function App() {
     return new Array(CARDS_COUNT).fill(undefined).map((val, i) => {
       const x = (i * 3) % 18;
       const w = 3;
-      const h = randomInteger(1, 4);
+      const h = randomInteger(1, 3);
       return (
         <div
           key={i}
           className="GridCard"
           data-grid={{ x, y: Math.floor(i / 6) * h, w, h }}
-        />
+        >
+          <div style={{ margin: "8px" }}>
+            <span className="GridCard__Name">{`Card ${i + 1}`}</span>
+          </div>
+        </div>
       );
     });
   }, []);
 
   return (
-    <div>
-      <AutoGrid margin={margin} {...state}>
-        {children}
-      </AutoGrid>
+    <div className="App">
+      <div className="Container">
+        <AutoGrid margin={margin} {...state}>
+          {children}
+        </AutoGrid>
+      </div>
     </div>
   );
 }
