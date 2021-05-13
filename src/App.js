@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import RGL, { WidthProvider } from "react-grid-layout";
+import ControlPanel from "./ControlPanel";
+import { getGridBackground, randomInteger } from "./utils";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
-import { getGridBackground, randomInteger } from "./utils";
 import "./styles.css";
 
 const CARDS_COUNT = 10;
@@ -20,7 +21,7 @@ function Grid({ isDraggable, margin, width, cols, ...props }) {
       className="Grid"
       style={{
         backgroundImage: isDraggable
-          ? getGridBackground({ color: "#fafafa", margin, ...props })
+          ? getGridBackground({ color: "#fafafa", margin, rowHeight, ...props })
           : "",
       }}
     >
@@ -46,7 +47,8 @@ function App() {
     isDraggable: true,
     isResizable: true,
     isBounded: false,
-    preventCollision: false,
+    compactType: null,
+    resizeHandles: ["se"],
   });
 
   const children = useMemo(() => {
@@ -71,6 +73,7 @@ function App() {
   return (
     <div className="App">
       <div className="Container">
+        <ControlPanel {...state} setGridProps={setGridState} />
         <AutoGrid margin={margin} {...state}>
           {children}
         </AutoGrid>
