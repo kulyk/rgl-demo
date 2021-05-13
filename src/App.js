@@ -38,14 +38,11 @@ function NavBar() {
 function App() {
   return (
     <Router>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="App">
         <Switch>
-          <Route path="/cancel-drag">
-            <CancelDragExperiment />
-          </Route>
           <Route path="/">
-            <Grid />
+            <CancelDragExperiment />
           </Route>
         </Switch>
       </div>

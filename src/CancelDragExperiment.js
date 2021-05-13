@@ -1,35 +1,23 @@
-import { useEffect, useCallback, useState } from "react";
+import { useEffect, useCallback } from "react";
 import useUndo from "use-undo";
 import Grid from "./Grid";
 import { generateLayout } from "./utils";
 
 function CancelDragExperiment() {
-  const [isEditing, setEditing] = useState(false);
-
   const [
     { present: layout },
     { set: setLayout, undo, redo, canRedo, canUndo },
-  ] = useUndo(generateLayout(3));
-
-  const onDragStart = useCallback(() => {
-    setEditing(true);
-  }, []);
+  ] = useUndo(generateLayout(10));
 
   const onDragStop = useCallback(
     (newLayout) => {
-      setEditing(false);
       setLayout(newLayout);
     },
     [setLayout]
   );
 
-  const onResizeStart = useCallback(() => {
-    setEditing(true);
-  }, []);
-
   const onResizeStop = useCallback(
     (newLayout) => {
-      setEditing(false);
       setLayout(newLayout);
     },
     [setLayout]
@@ -62,9 +50,7 @@ function CancelDragExperiment() {
         Redo (CMD + Shift + Z)
       </button>
       <Grid
-        onDragStart={onDragStart}
         onDragStop={onDragStop}
-        onResizeStart={onResizeStart}
         onResizeStop={onResizeStop}
         layout={layout}
       />
