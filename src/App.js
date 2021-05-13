@@ -9,11 +9,11 @@ import {
 // import Grid from "./Grid";
 import CancelDragExperiment from "./CancelDragExperiment";
 
-const routes = [
-  { path: "/", name: "Simple" },
-  { path: "/cancel-drag", name: "Cancel Drag" },
-  { path: "/wrapped-drag", name: "Wrapped Drag" },
-];
+// const routes = [
+//   { path: "/", name: "Simple" },
+//   { path: "/cancel-drag", name: "Cancel Drag" },
+//   { path: "/wrapped-drag", name: "Wrapped Drag" },
+// ];
 
 // function NavBar() {
 //   const { pathname } = useLocation();
