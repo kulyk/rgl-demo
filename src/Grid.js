@@ -23,7 +23,7 @@ function Grid(props) {
 
 const AutoGrid = WidthProvider(Grid);
 
-function SimpleGrid(props) {
+function SimpleGrid({ layout, ...props }) {
   const [{ margin, ...state }, setGridState] = useState({
     cols: 18,
     margin: 6,
@@ -35,8 +35,10 @@ function SimpleGrid(props) {
     ...props,
   });
 
-  const layout = useMemo(() => generateLayout(CARDS_COUNT), []);
-  const children = useMemo(() => renderPlaceholderCards(CARDS_COUNT), []);
+  const children = useMemo(
+    () => renderPlaceholderCards(layout.length),
+    [layout.length]
+  );
 
   return (
     <div className="Container">
@@ -47,5 +49,9 @@ function SimpleGrid(props) {
     </div>
   );
 }
+
+SimpleGrid.defaultProps = {
+  layout: generateLayout(CARDS_COUNT),
+};
 
 export default SimpleGrid;

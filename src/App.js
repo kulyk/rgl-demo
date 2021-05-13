@@ -7,6 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import Grid from "./Grid";
+import CancelDragExperiment from "./CancelDragExperiment";
 
 const routes = [
   { path: "/", name: "Simple" },
@@ -40,6 +41,9 @@ function App() {
       <NavBar />
       <div className="App">
         <Switch>
+          <Route path="/cancel-drag">
+            <CancelDragExperiment />
+          </Route>
           <Route path="/">
             <Grid />
           </Route>

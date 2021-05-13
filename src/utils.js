@@ -8,7 +8,7 @@ export function generateLayout(count) {
     const h = randomInteger(2, 5);
     const x = (i * 3) % 18;
     const y = Math.floor(i / 6) * h;
-    return { i: String(i), x, y, w, h };
+    return { i: `card-${i + 1}`, x, y, w, h };
   });
 }
 
@@ -24,7 +24,7 @@ function GridCard({ children }) {
 
 export function renderPlaceholderCards(count) {
   return new Array(count).fill(undefined).map((val, i) => (
-    <div key={String(i)} className="GridCard">
+    <div key={`card-${i + 1}`} className="GridCard">
       <GridCard>{`Card ${i + 1}`}</GridCard>
     </div>
   ));
