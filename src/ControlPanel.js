@@ -13,6 +13,7 @@ function ControlPanel({ compactType, setGridProps }) {
               compactType: event.target.value || null,
             }));
           }}
+          style={{ marginLeft: "8px" }}
         >
           <option value="vertical">Vertical</option>
           <option value="horizontal">Horizontal</option>

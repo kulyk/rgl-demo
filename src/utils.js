@@ -5,7 +5,7 @@ function randomInteger(min, max) {
 export function generateLayout(count) {
   return new Array(count).fill(undefined).map((val, i) => {
     const w = 3;
-    const h = randomInteger(2, 5);
+    const h = randomInteger(1, 3);
     const x = (i * 3) % 18;
     const y = Math.floor(i / 6) * h;
     return { i: `card-${i + 1}`, x, y, w, h };
