@@ -8,6 +8,29 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+nav > ul {
+  display: flex;
+  list-style: none;
+  width: 100%;
+}
+
+nav > ul > li {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+}
+
+nav > ul > li > a:visited {
+  color: black;
+}
+
+nav > ul > li > a.active {
+  text-decoration: underline;
+}
+
 .App {
   padding: 0 60px;
 }
